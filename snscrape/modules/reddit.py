@@ -157,7 +157,7 @@ class _RedditPushshiftSearchScraper(_RedditPushshiftScraper):
 			params['before'] = self._before
 		if self._after is not None:
 			params['after'] = self._after
-		params['sort'] = 'desc'
+		params['sort'] = 'created_utc'
 		while True:
 			obj = self._get_api(url, params = params)
 			if not obj['data'] or (lowestIdSeen is not None and all(_cmp_id(d['id'], lowestIdSeen) >= 0 for d in obj['data'])): # end of pagination
